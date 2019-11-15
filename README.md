@@ -15,3 +15,7 @@ Run "ionic serve -l" and the application will load automatically giving you the 
 
 Alternatively you could use the SportDec.apk to experience the application directly on your android phone.
 
+Default User:
+inc2@ph.com
+password
+
