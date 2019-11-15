@@ -1,0 +1,59 @@
+page-home {
+    .content{
+        background-color: #453352;
+        color: #f1f1f1;
+    }
+    ion-row{
+        display: flex;
+    }
+    .full_time_goals{
+        font-size: 5rem;
+    }
+    .full_time_text{
+        font-size: 2rem;
+    }
+    .team_name{
+        font-size: 1.5rem;
+    }
+    ion-card{
+        margin: 0px !important;
+        width: 100% !important;
+    }
+    .winner{
+        color: #FEB600;
+    }
+    .loser{
+        color: #06cbc4;
+    }
+    .match_details{
+        color: #182222;
+        padding: 6%;
+        font-size: 1.2rem;
+        font-weight: 500;
+        .match_title{
+            color: #182222;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    }
+    .segment-ios .segment-button.segment-activated{
+        background-color: #FEB600;
+        color: #f1f1f1;
+    }
+    .segment-ios .segment-button{
+        border-color: transparent;
+    }
+    .segment-ios .segment-button{
+        color: #06cbc4;
+    }
+    .segment-md .segment-button.segment-activated{
+        color: #f1f1f1;
+        background-color: #FEB600;
+    }
+    .segment-md .segment-button{
+        border-color: transparent;
+    }
+    .segment-md .segment-button{
+        color: #06cbc4;
+    }
+}

@@ -1,0 +1,123 @@
+<ion-header no-border>
+  <ion-navbar transparent> 
+    <ion-title>
+      <img src="assets/imgs/header-logo.png" class="header-logo">
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="match_data">
+<div>
+<ion-grid>
+  <ion-row center>
+    <ion-col col-4>
+      <img src="assets/imgs/Blackburn.png"><br>
+      <span class="team_name">{{match_data.team_data[0].name}}</span>
+    </ion-col>
+    <ion-col col-4 text-center><br>
+    <span class="full_time_goals"><span [ngClass]="match_data.team_data[0].teamref == match_data.match_winner ? 'winner' : 'loser'">2</span>&nbsp;:&nbsp;<span [ngClass]="match_data.team_data[1].teamref == match_data.match_winner ? 'winner' : 'loser'">2</span> </span><br>
+    <span class="full_time_text">Full time</span>
+    </ion-col>
+    <ion-col col-4>
+      <img src="assets/imgs/Oldham.png"><br>
+      <span class="team_name">{{match_data.team_data[1].name}}</span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</div>
+
+  <div>
+    <ion-segment [(ngModel)]="match">
+      <ion-segment-button value="Match Details">
+        Match Details
+      </ion-segment-button>
+      <ion-segment-button value="Timeline">
+        Timeline
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="match">
+    <ion-list *ngSwitchCase="'Match Details'" ngSelected="selected">
+      <ion-card class="match_details">
+        <span class="match_title">{{match_data.name}}</span><br><br>
+        City : {{match_data.city}}<br>
+        Venue : {{match_data.venue_name}}<br>
+        Date & Time : {{match_data.local_date}}&nbsp;{{match_data.tz}}<br>
+        Match Day: {{match_data.match_day}}<br>
+        Season : {{match_data.season_name}}<br>
+        League : {{match_data.competition_name}}<br>
+        Pool : {{match_data.pool}} {{match_data.round_name}} : {{match_data.round}}<br>
+        Referee: {{match_data.referee}}<br><br>
+        <b>Winner : {{match_winner}}</b>
+      </ion-card>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'Timeline'">
+      <ion-card class="match_details">
+        <span class="match_title">{{match_data.name}}</span><br><br>
+        <div *ngFor="let data of match_data.events">
+          <div *ngIf="data.category == 'period_change'" text-center>
+            <span><b>{{data.label}}</b></span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'goal' && data.side=='home'" text-left>
+            <span><b>{{data.value}}!</b></span><br>
+            <span>Goal By : {{data.label}}</span><br>
+            <span>Assisted By: {{data.additionalInfo}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'goal' && data.side=='away'" text-right>
+            <span><b>{{data.value}}!</b></span><br>
+            <span>Goal By : {{data.label}}</span><br>
+            <span>Assisted By: {{data.additionalInfo}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'substitution_off' && data.side=='home'" text-left>
+            <span><b>Substitution Off</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'substitution_on' && data.side=='home'" text-left>
+            <span><b>Substitution On</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'substitution_off' && data.side=='away'" text-right>
+            <span><b>Substitution Off</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'substitution_on' && data.side=='away'" text-right>
+            <span><b>Substitution On</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'booking' && data.side=='home'" text-left>
+            <span><b>Booking</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Card: {{data.value}}</span>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'booking' && data.side=='away'" text-right>
+            <span><b>Booking - {{data.additionalInfo}}</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Card: {{data.value}}</span>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'penaltyshot' && data.side=='home'" text-left>
+            <span><b>Penalty - {{data.value}}</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+          <div *ngIf="data.category == 'penaltyshot' && data.side=='away'" text-right>
+            <span><b>Penalty - {{data.value}}</b></span><br>
+            <span>{{data.label}}</span><br>
+            <span>Time: {{data.time}}&nbsp; minutes</span><br>
+          </div>
+        </div>
+      </ion-card>
+    </ion-list>
+  </div>
+
+
+</ion-content>

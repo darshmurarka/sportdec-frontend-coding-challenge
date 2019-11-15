@@ -1,0 +1,40 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar transparent>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-col col-10 offset-1>
+      <img src="assets/imgs/header-logo.png">
+    </ion-col>
+  </ion-grid>
+  <br>
+  <br>
+  <form [formGroup]="login">
+    <div class="left-addon">
+      &nbsp;<ion-icon name="person" color="stable"></ion-icon>
+      <input class="form-control" placeholder="Username" type="email" [(ngModel)]="formdata.username" name="username"
+        formControlName="username">
+    </div>
+    <div class="left-addon">
+      &nbsp;<ion-icon name="lock" color="stable"></ion-icon>
+      <input class="form-control" placeholder="Password" type="password" [(ngModel)]="formdata.password" name="password"
+        formControlName="password">
+    </div>
+    <ion-item no-lines class="remember">
+      <ion-label>Remember Me</ion-label>
+      <ion-checkbox color="stable" checked="false" [(ngModel)]="formdata.remember" name="remember"
+        formControlName="remember"></ion-checkbox>
+    </ion-item>
+    <div text-center><button ion-button full round class="button" color="calm" (click)="sp_login()" [disabled]="!login.valid">SIGN
+        IN</button></div>
+  </form>
+  <div text-center><button ion-button full round class="button" color="gold" (click)="register()">REGISTER</button></div>
+</ion-content>

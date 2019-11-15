@@ -1,0 +1,50 @@
+page-register {
+    .content{
+        background-color: #453352;
+    }
+    .left-addon {
+        border: solid 1px #dedede !important;
+        margin-left: 6%;
+        margin-right: 6%;
+        padding: 5px;
+        border-radius: 17px;
+        margin-bottom: 5%;
+    }
+    .left-addon input {
+        font-size: 15px;
+        padding-left: 39px;
+        border: none !important;
+        background: #453352;
+        color: #f1f1f1;
+    }
+    .remember {
+        border: none !important;
+        color: #f1f1f1;
+        background-color: #453352;
+        font-size:15px;
+        padding-left: 25px;
+        margin-top: -10px;
+        ion-checkbox {
+            margin: 8px 8px 8px 0px !important;
+        }
+    }
+    .button ,.fbbutton{
+        margin-top: 20px;
+        margin-left: 6%;
+        margin-right: 6%;
+        padding: 5px;
+        border-radius: 17px;
+        width: 90%;
+    }
+    ion-select{
+        color: #f1f1f1;
+    }
+    ion-datetime{
+        background-color: #453352;
+        color: #f1f1f1;
+        padding-left:10px;
+    }
+    .item{
+        background-color: #453352;
+    }
+}
